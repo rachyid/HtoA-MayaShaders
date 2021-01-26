@@ -1,0 +1,1307 @@
+# mtd file created by rachi Hadj Abderrahmane
+# elrachyd@gmail.com
+# date: 1/26/2021
+#-------------------Maya Shaders-------------------------------------------------
+#--------------------------------------------------------------------------------
+[node MayaBulge]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Bluge"	
+	houdini.parm.group.bludge_group STRING "Bludge Attributes;2"	
+	houdini.parm.separator.bludge_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;1"	
+	houdini.parm.group.Uv_group STRING "Uv Coordinates;1"		
+	houdini.order STRING "bludge_group uWidth vWidth "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter invert "		
+    "Uv_group uCoord vCoord "
+	
+	[attr uWidth]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.1
+		
+	[attr vWidth]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.1
+		
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2	
+	
+#--------------------------------------------------------------------------------
+[node MayaBrownian] 
+	houdini.category STRING "MayaShader"   
+	houdini.label STRING "Brownian"	
+	houdini.parm.group.brown_group STRING "Brown Attributes;4"	
+	houdini.parm.separator.brown_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"		
+	houdini.parm.group.effects_group STRING "Effects;6"	
+	houdini.order STRING "brown_group lacunarity increment octaves weight3d "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter filterOffset invert local wrap blend "		
+
+	[attr lacunarity]
+		min 		FLOAT  1
+		softmax 	FLOAT  100
+		default		FLOAT  4
+		
+	[attr increment]
+		min 		FLOAT  1
+		softmax 	FLOAT  1
+		default		FLOAT  0.1
+		
+	[attr octaves]
+		min 		FLOAT  1
+		softmax 	FLOAT  100
+		default		FLOAT  3
+
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2	
+	
+#--------------------------------------------------------------------------------
+[node MayaCloth]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Cloth"
+	houdini.parm.group.cloth_group STRING "Cloth Attributes;10"	
+	houdini.parm.separator.cloth_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;1"	
+	houdini.parm.group.Uv_group STRING "Uv Coordinates;1"		
+	houdini.order STRING "cloth_group gapColor uColor vColor uWidth vWidth uWave vWave randomness widthSpread brightSpread "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter invert "		
+    "Uv_group uCoord vCoord"
+
+	[attr uWidth]
+		min 		FLOAT  1
+		softmax 	FLOAT  1
+		default		FLOAT  0.75
+		
+	[attr vWidth]
+		min 		FLOAT  1
+		softmax 	FLOAT  1
+		default		FLOAT  0.75
+		
+	[attr uWave]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+
+	[attr vWave]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0		
+
+	[attr randomness]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+
+	[attr widthSpread]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+
+	[attr brightSpread]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2	
+				
+#--------------------------------------------------------------------------------
+[node MayaCloud]
+	houdini.category STRING "MayaShader"
+	houdini.label STRING "Cloud"
+	houdini.parm.group.cloud_group STRING "Cloud Attributes;11"	
+	houdini.parm.separator.cloud_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"	
+	houdini.order STRING "cloud_group color1 color2 contrast amplitude depth ripples softEdges edgeThresh centerThresh transpRange ratio "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter filterOffset invert wrap local blend "		
+
+	[attr contrast]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  1.
+		
+	[attr amplitude]
+		min 		FLOAT  1
+		softmax 	FLOAT  100
+		default		FLOAT  1
+		
+	[attr edgeThresh]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.9
+
+	[attr centerThresh]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0		
+
+	[attr transpRange]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+
+	[attr ratio]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+	
+#--------------------------------------------------------------------------------
+[node MayaCloudAlpha]
+	houdini.skip BOOL true   
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Cloud Alpha"	
+	houdini.parm.group.cloudAlpha_group STRING "Cloud Alpha Attributes;7"	
+	houdini.parm.separator.cloud_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;3"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"	
+	houdini.parm.separator.effects_sep STRING "---"		
+	houdini.order STRING "cloudAlpha_group amplitude depth ripples edgeThresh centerThresh transpRange ratio "
+	"colorBalance_group alphaGain alphaOffset "	
+	"effects_group invert wrap local "		
+		
+	[attr amplitude]
+		min 		FLOAT  1
+		softmax 	FLOAT  100
+		default		FLOAT  1
+
+	[attr depth]
+		min 		FLOAT  1
+		softmax 	FLOAT  100
+		default		FLOAT  1	
+
+	[attr ripples]
+		min 		FLOAT  1
+		softmax 	FLOAT  100
+		default		FLOAT  1			
+		
+	[attr edgeThresh]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.9
+
+	[attr centerThresh]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0		
+
+	[attr transpRange]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+
+	[attr ratio]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2	
+			
+#--------------------------------------------------------------------------------
+[node MayaCrater]
+	houdini.category STRING "MayaShader"
+	houdini.label STRING "Crater"	
+	houdini.parm.group.crater_group STRING "Crater Attributes;7"	
+	houdini.parm.separator.crater_sep STRING "---"	
+	houdini.parm.group.normalOptions_group STRING "Normal Options;4"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"	
+	houdini.order STRING "crater_group shaker channel1 channel2 channel3 melt balance frequency "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"normalOptions_group normDepth normMelt normBalance normFrequency "		
+	"effects_group filter filterOffset invert local wrap blend "		
+
+	[attr shaker]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  0.5
+		
+	[attr melt]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.240
+		
+	[attr balance]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+
+	[attr frequency]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  2		
+
+	[attr normDepth]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  5
+
+	[attr normMelt]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+		
+	[attr normBalance]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  1	
+
+	[attr normFrequency]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  1			
+
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2		
+#--------------------------------------------------------------------------------
+[node MayaEnvSphere]
+	houdini.category STRING "MayaShader"
+	houdini.label STRING "Env Sphere"	
+	houdini.parm.group.envSphereAttr_group STRING "Env Sphere Attributes;3"	
+	houdini.parm.separator.envSphereAttr_sep STRING "---"	
+	houdini.order STRING "envSphereAttr_group image shearUV flip "	
+	
+#--------------------------------------------------------------------------------
+[node MayaFluid]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Fluid"	
+#--------------------------------------------------------------------------------
+[node MayaFluidData]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Fluid Data"	
+#--------------------------------------------------------------------------------
+[node MayaFluidTexture2D]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Fluid 2D Texture"	
+#--------------------------------------------------------------------------------
+[node MayaFractal]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Fractal"
+	houdini.parm.group.fractal_group STRING "Fractal Attributes;11"	
+	houdini.parm.separator.fractal_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"	
+	houdini.parm.group.Uv_group STRING "Uv Coordinates;1"	
+	houdini.order STRING "fractal_group amplitude threshold ratio frequencyRatio levelMin levelMax bias inflection animated time timeRatio "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter filterOffset invert "		
+    "Uv_group uCoord vCoord"
+
+	[attr amplitude]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  1
+		
+	[attr threshold]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0
+		
+	[attr ratio]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.707
+
+	[attr frequencyRatio]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  2		
+
+	[attr levelMin]
+		min 		FLOAT  0
+		softmax 	FLOAT  25
+		default		FLOAT  0
+
+	[attr levelMax]
+		min 		FLOAT  0
+		softmax 	FLOAT  25
+		default		FLOAT  9
+		
+	[attr bias]
+		min 		FLOAT  -1
+		softmax 	FLOAT  100
+		default		FLOAT  0	
+
+	[attr time]
+		min 		FLOAT  0
+		softmax 	FLOAT  1000
+		default		FLOAT  0			
+
+	[attr timeRatio]
+		min 		FLOAT  1
+		softmax 	FLOAT  1000
+		default		FLOAT  2
+		
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2
+		
+#--------------------------------------------------------------------------------
+[node MayaGranite]
+	houdini.category STRING "MayaShader"
+	houdini.label STRING "Granite"	
+	houdini.parm.group.granite_group STRING "Granite Attributes;11"	
+	houdini.parm.separator.granite_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"	
+	houdini.order STRING "granite_group color1 color2 color3 fillerColor cellSize density mixRatio spottyness randomness threshold creases "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group invert wrap local "		
+
+	[attr cellSize]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  0.15
+		
+	[attr density]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  1
+		
+	[attr mixRatio]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.5
+
+	[attr spottyness]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  0.3
+
+	[attr randomness]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  1
+		
+	[attr threshold]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  0.5	
+
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2
+
+#--------------------------------------------------------------------------------
+[node MayaGrid]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Grid"	
+	houdini.parm.group.grid_group STRING "Grid Attributes;5"	
+	houdini.parm.separator.grid_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"	
+	houdini.order STRING "grid_group lineColor fillerColor uWidth vWidth contrast "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter filterOffset invert "		
+
+	[attr uWidth]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.1
+
+	[attr vWidth]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.1
+		
+	[attr contrast]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.5	
+
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2
+		
+#--------------------------------------------------------------------------------
+[node MayaHair]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Hair"	
+#--------------------------------------------------------------------------------
+[node MayaLeather]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Leather"	
+	houdini.parm.group.leather_group STRING "Leather Attributes;8"	
+	houdini.parm.separator.leather_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;4"	
+	houdini.order STRING "leather_group cellColor creaseColor cellSize density spottyness randomness threshold creases "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group invert wrap local blend "		
+
+	[attr cellSize]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.5
+
+	[attr density]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.1
+		
+	[attr spottyness]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  0.5	
+
+	[attr randomness]
+		min 		FLOAT  0
+		softmax 	FLOAT  200
+		default		FLOAT  0.50	
+
+	[attr threshold]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  0.830			
+		
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2
+
+#--------------------------------------------------------------------------------
+[node MayaMarble]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Marble"
+	houdini.parm.group.marble_group STRING "Marble Attributes;5"	
+	houdini.parm.separator.marble_sep STRING "---"
+	houdini.parm.group.noise_group STRING "Noise Attributes;4"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"	
+	houdini.order STRING "marble_group fillerColor veinColor veinWidth diffusion contrast "	
+	"noise_group amplitude ratio ripples depth "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group invert local wrap "		
+
+	[attr veinWidth]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  0.205
+
+	[attr diffusion]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  0.169
+		
+	[attr contrast]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  0.175	
+
+	[attr amplitude]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  0.343	
+
+	[attr ratio]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.151			
+		
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2
+		
+#--------------------------------------------------------------------------------
+[node MayaMountain]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Mountain"	
+	houdini.parm.group.mountain_group STRING "Mountain Attributes;10"	
+	houdini.parm.separator.mountain_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"
+	houdini.parm.group.Uv_group STRING "Uv Coordinates;1"		
+	houdini.order STRING "mountain_group snowColor rockColor amplitude snowRoughness rockRoughness boundary snowAltitude snowDropoff snowSlope depthMax "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter filterOffset invert "		
+    "Uv_group uCoord vCoord"
+
+	[attr amplitude]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  1
+
+	[attr snowRoughness]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.4
+		
+	[attr rockRoughness]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.707	
+
+	[attr boundary]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  1	
+
+	[attr snowAltitude]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  0.5			
+
+	[attr snowDropoff]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  2	
+
+	[attr snowSlope]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  0.8	
+
+	[attr depthMax]
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		default		FLOAT  20	
+		
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2	
+		
+#--------------------------------------------------------------------------------
+[node MayaNoise]
+	houdini.category STRING "MayaShader"  
+	houdini.label STRING "Noise"	
+	houdini.parm.group.noise_group STRING "Noise Attributes;17"	
+	houdini.parm.separator.noise_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"
+	houdini.parm.group.Uv_group STRING "Uv Coordinates;1"		
+	houdini.order STRING "noise_group threshold amplitude ratio snowRoughness frequencyRatio depthMax inflection time frequency implode implodeCenter noiseType density spottyness sizeRand randomness falloff numWaves "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter filterOffset invert "		
+    "Uv_group uCoord vCoord"
+
+	[attr threshold]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  0
+
+	[attr amplitude]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  1
+		
+	[attr ratio]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.707	
+
+	[attr frequencyRatio]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  2
+
+	[attr depthMax]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  3		
+
+	[attr time]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  5
+		default		FLOAT  0	
+
+	[attr frequency]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  8
+
+	[attr implode]
+		softmin 	FLOAT  -1
+		softmax 	FLOAT  1
+		default		FLOAT  1	
+
+	[attr noiseType]
+	houdini.label STRING "Noise Type"	
+	
+	[attr density]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  1			
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == wave}" "{noiseType == wispy}" "{noiseType == spacetime}" 
+
+
+	[attr spottyness]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.1			
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == wave}" "{noiseType == wispy}" "{noiseType == spacetime}" 
+		
+	[attr sizeRand]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0			
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == wave}" "{noiseType == wispy}" "{noiseType == spacetime}" 
+
+		
+	[attr randomness]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  1	
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == wave}" "{noiseType == wispy}" "{noiseType == spacetime}" 
+
+	[attr falloff]
+	houdini.label STRING "Falloff"	
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == wave}" "{noiseType == wispy}" "{noiseType == spacetime}" 	
+
+	[attr numWaves]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  5
+		default		FLOAT  5
+		houdini.disable_when STRING "{ noiseType ==  billow}" "{ noiseType ==  perlin}" "{noiseType == wispy}" 		
+
+	[attr alphaGain]
+		softmin 	FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		softmin 	FLOAT  0
+		softmax 	FLOAT  2	
+		
+#--------------------------------------------------------------------------------
+[node MayaRock]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Rock"		
+	houdini.parm.group.rock_group STRING "Rock Attributes;5"	
+	houdini.parm.separator.rock_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;6"
+	houdini.order STRING "rock_group color1 color2 grainSize diffusion mixRatio "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group filter filterOffset invert local wrap blend "		
+
+	[attr grainSize]
+		min 		FLOAT  0
+		softmax 	FLOAT  1.0
+		default		FLOAT  0.010			
+
+	[attr diffusion]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  1.0	
+
+	[attr mixRatio]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.50
+		
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2	
+		
+#--------------------------------------------------------------------------------
+[node MayaSnow]
+	houdini.category STRING "MayaShader"
+	houdini.label STRING "Snow"		
+	houdini.parm.group.snow_group STRING "Snow Attributes;5"	
+	houdini.parm.separator.snow_sep STRING "---"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;4"
+	houdini.order STRING "snow_group snowColor surfaceColor threshold depthDecay thickness "	
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group invert wrap local blend "		
+
+	[attr threshold]
+		min 		FLOAT  0
+		softmax 	FLOAT  1.0
+		default		FLOAT  0.05			
+
+	[attr depthDecay]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  5.0	
+
+	[attr thickness]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  1.0
+		
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2	
+		
+#--------------------------------------------------------------------------------
+[node MayaSolidFractal]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "solidFractal"	
+	houdini.parm.group.solidFractal_group STRING "Solid Fractal Attributes;11"	
+	houdini.parm.separator.solidFractal_sep STRING "---"
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"
+	houdini.order STRING "solidFractal_group threshold amplitude ratio frequencyRatio ripples depth bias inflection animated time timeRatio "
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group invert local wrap "		
+
+	[attr threshold]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  0
+
+	[attr amplitude]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  1
+		
+	[attr ratio]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.707	
+
+	[attr frequencyRatio]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  2
+
+	[attr bias]
+		softmin 	FLOAT  -1
+		softmax 	FLOAT  100
+		default		FLOAT  0	
+
+	[attr time]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1000
+		default		FLOAT  0			
+
+	[attr timeRatio]
+		softmin 	FLOAT  1
+		softmax 	FLOAT  1000
+		default		FLOAT  2	
+		
+#--------------------------------------------------------------------------------
+[node MayaStucco]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Stucco"	
+	houdini.parm.group.stucco_group STRING "Stucco Attributes;3"	
+	houdini.parm.separator.stucco_sep STRING "---"
+	houdini.parm.group.normalOptions_group STRING "Normal Options;2"		
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.group.effects_group STRING "Effects;3"
+	houdini.order STRING "stucco_group shaker channel1 channel2 "
+	"normalOptions_group normDepth normMelt "			
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group invert local wrap "		
+
+	[attr shaker]
+		min 		FLOAT  0
+		softmax 	FLOAT  20
+
+	[attr normalDepth]
+		min 		FLOAT  -5
+		softmax 	FLOAT  5
+
+	[attr normalMelt]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2			
+#--------------------------------------------------------------------------------
+[node MayaVolumeNoise]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Volume Noise"		
+	houdini.parm.group.volumeNoise_group STRING "Volume Noise Attributes;19"	
+	houdini.parm.separator.volumeNoise_sep STRING "---"
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;3"
+	houdini.order STRING "volumeNoise_group threshold amplitude ratio frequencyRatio depthMax inflection animated time frequency time scale origin implode density spottyness sizeRand randomness implodeCenter noiseType density spottyness sizeRand randomness falloff numWaves "
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group invert local wrap "		
+
+	[attr threshold]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  0
+
+	[attr amplitude]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  1
+		
+	[attr ratio]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.707	
+
+	[attr frequencyRatio]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  2
+
+	[attr depthMax]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  3		
+
+	[attr time]
+		min 		FLOAT  0
+		softmax 	FLOAT  5
+		default		FLOAT  0	
+
+	[attr frequency]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  8
+
+	[attr implode]
+		min 		FLOAT  -1
+		softmax 	FLOAT  1
+		default		FLOAT  1	
+
+	[attr noiseType]
+	houdini.label STRING "Noise Type"	
+	
+	[attr density]
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+		default		FLOAT  1			
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == volumewave}" "{noiseType == wispy}" "{noiseType == spacetime}"
+
+	[attr spottyness]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0.1			
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == volumewave}" "{noiseType == wispy}" "{noiseType == spacetime}" 
+		
+	[attr sizeRand]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  0			
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == volumewave}" "{noiseType == wispy}" "{noiseType == spacetime}" 
+		
+	[attr randomness]
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+		default		FLOAT  1	
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == volumewave}" "{noiseType == wispy}" "{noiseType == spacetime}" 
+
+	[attr falloff]
+	houdini.label STRING "Falloff"	
+		houdini.disable_when STRING "{ noiseType ==  perlin}" "{ noiseType == volumewave}" "{noiseType == wispy}" "{noiseType == spacetime}" 	
+
+	[attr numWaves]
+		min 		FLOAT  0
+		softmax 	FLOAT  5
+		default		FLOAT  5
+		houdini.disable_when STRING "{ noiseType ==  billow}" "{ noiseType ==  perlin}" "{noiseType == wispy}" 		
+
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2	
+		
+#--------------------------------------------------------------------------------
+[node MayaWater]
+	houdini.category STRING "MayaShader"
+	houdini.label STRING "Water"
+	houdini.parm.group.water_group STRING "Water Attributes;9"	
+	houdini.parm.separator.water_sep STRING "---"
+	houdini.parm.group.concentricRipple_group STRING "Concentric Ripple Attributtes;12"	
+	houdini.parm.group.colorBalance_group STRING "Color Balance;6"
+	houdini.parm.separator.colorBalance_sep STRING "---"	
+	houdini.parm.group.effects_group STRING "Effects;1"
+	houdini.parm.group.Uv_group STRING "Uv Coordinates;1"		
+	houdini.order STRING "water_group numWaves waveTime waveVelocity waveAmplitude fast waveFrequency subWaveFrequency smoothness windUV "
+	"concentricRipple_group rippleTime rippleFrequency rippleAmplitude dropSize rippleOrigin groupVelocity phaseVelocity spreadStart spreadRate reflectionBox boxMin boxMax "
+	"colorBalance_group defaultColor colorGain colorOffset alphaGain alphaOffset alphaIsLuminance "	
+	"effects_group invert "		
+    "Uv_group uCoord vCoord"
+	
+	[attr numWaves]
+		min 		FLOAT  0
+		softmax 	FLOAT  32
+
+	[attr waveTime]	
+		min 		FLOAT  0
+		softmax 	FLOAT  100	
+
+	[attr waveVelocity]	
+		min 		FLOAT  0
+		softmax 	FLOAT  20	
+
+	[attr waveAmplitude]	
+		min 		FLOAT  0
+		softmax 	FLOAT  1
+
+	[attr waveFrequency]	
+		min 		FLOAT  0
+		softmax 	FLOAT  20
+
+	[attr subWaveFrequency]	
+		min 		FLOAT  0
+		softmax 	FLOAT  20
+
+	[attr smoothness]	
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+
+	[attr wind]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2
+
+	[attr rippleTime]	
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+
+	[attr rippleFrequency]	
+		min 		FLOAT  0
+		softmax 	FLOAT  50
+
+	[attr rippleAmplitude]	
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+
+	[attr dropSize]	
+		min 		FLOAT  0
+		softmax 	FLOAT  10
+
+	[attr groupVelocity]	
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+
+	[attr phaseVelocity]	
+		min 		FLOAT  0
+		softmax 	FLOAT  100
+		
+	[attr spreadStart]	
+		min 		FLOAT  0
+		softmax 	FLOAT  10		
+		
+	[attr spreadRate]	
+		min 		FLOAT  0
+		softmax 	FLOAT  10		
+		
+	[attr alphaGain]
+		min 		FLOAT  1
+		softmax 	FLOAT  2
+		
+	[attr alphaOffset]	
+		min 		FLOAT  0
+		softmax 	FLOAT  2		
+#--------------------------------------------------------------------------------
+[node MtoaWriteColor]
+	houdini.category STRING "MayaShader"
+	houdini.label STRING "Write Color"	
+#--------------------------------------------------------------------------------
+[node MtoaWriteFloat]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "Write Float"	
+
+#--------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------	
+#------------- Deprecated Shaders -----------------------------------------------
+#--------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------
+[node MtoaCameraUvMapper] 
+#	houdini.skip BOOL true             
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaBlendColors]
+#	houdini.skip BOOL true                    
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaBump2D]
+#	houdini.skip BOOL true                          
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaChecker]
+#	houdini.skip BOOL true                         
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaClamp]
+#	houdini.skip BOOL true                           
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaCondition]
+#	houdini.skip BOOL true                       
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaContrast]
+#	houdini.skip BOOL true                       
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaDoubleShadingSwitch]
+#	houdini.skip BOOL true             
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaFile]
+#	houdini.skip BOOL true                            
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaFlatClosure]
+#	houdini.skip BOOL true                     
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaGammaCorrect]
+#	houdini.skip BOOL true                     
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaHsvToRgb]
+#	houdini.skip BOOL true                        
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaImagePlane]
+#	houdini.skip BOOL true                      
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaLayeredTexture]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaLuminance]
+#	houdini.skip BOOL true                        
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaMultiplyDivide]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaNormalDisplacement]
+#	houdini.skip BOOL true              
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaPlace2DTexture]
+#	houdini.skip BOOL true                  
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaPlace3DTexture]
+#	houdini.skip BOOL true                  
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaPlusMinusAverage1D]
+#	houdini.skip BOOL true              
+	houdini.category STRING "MayaShader/Deprecated"  
+
+[node MayaPlusMinusAverage2D]
+#	houdini.skip BOOL true              
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaPlusMinusAverage3D]
+#	houdini.skip BOOL true              
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaProjection]
+#	houdini.skip BOOL true                      
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaQuadShadingSwitch]
+#	houdini.skip BOOL true               
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaRamp]
+#	houdini.skip BOOL true                            
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaRemapColor]
+#	houdini.skip BOOL true                      
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaRemapHsv]
+#	houdini.skip BOOL true                        
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaRemapValueToColor]
+#	houdini.skip BOOL true               
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaRemapValueToValue]
+#	houdini.skip BOOL true               
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaReverse]
+#	houdini.skip BOOL true                         
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaRgbToHsv]
+#	houdini.skip BOOL true                         
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaSamplerInfo1D]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaSamplerInfo2D]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaSamplerInfo3D]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaSetRange]
+#	houdini.skip BOOL true                        
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaShadingEngine]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaSingleShadingSwitch]
+#	houdini.skip BOOL true              
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaSurfaceLuminance]
+#	houdini.skip BOOL true                
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaSurfaceShader]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaTripleShadingSwitch]
+#	houdini.skip BOOL true             
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MayaVectorDisplacement]
+#	houdini.skip BOOL true               
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAnimColor]
+#	houdini.skip BOOL true                       
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAnimFloat]
+#	houdini.skip BOOL true                       
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAnimMatrix]
+#	houdini.skip BOOL true                      
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAnimPoint]
+#	houdini.skip BOOL true                       
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAnimVector]
+#	houdini.skip BOOL true                      
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAovWriteColor]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAovWriteFloat]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAovWriteVector]
+#	houdini.skip BOOL true                  
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaAovWriteVector2]
+#	houdini.skip BOOL true                 
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaColorToFloat]
+#	houdini.skip BOOL true                    
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaMeshLightMaterial]
+#	houdini.skip BOOL true               
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaPoint2ToFloat]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaPointToFloat]
+#	houdini.skip BOOL true                    
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaUserDataBool]
+#	houdini.skip BOOL true                    
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaUserDataColor]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaUserDataVec2]
+#	houdini.skip BOOL true                    
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaUserDataVector]
+#	houdini.skip BOOL true                  
+	houdini.category STRING "MayaShader/Deprecated"  
+	
+[node MtoaVectorToFloat]
+#	houdini.skip BOOL true                   
+	houdini.category STRING "MayaShader/Deprecated"  
+	

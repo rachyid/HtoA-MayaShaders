@@ -1,0 +1,127 @@
+# mtd file created by rachi Hadj Abderrahmane
+# elrachyd@gmail.com
+# date: 1/26/2021
+#-------------------Maya Shaders-------------------------------------------------
+#--------------------------------------------------------------------------------
+
+[node ldkSimplexNoise]
+	houdini.category STRING "MayaShader" 
+	houdini.label STRING "simplexNoise"
+	houdini.parm.group.simplexNoise_group STRING "Simplex Noise Attributes;12"	
+	houdini.parm.separator.simplexNoise_sep STRING "---"	
+	houdini.order STRING "simplexNoise_group scale amplitude threshold ratio octaves frequency frequencyRatio distortionU distortionV distortionRatio gamma noiseType "
+		
+	[attr scale]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  6
+
+	[attr amplitude]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		
+	[attr threshold]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		
+	[attr ratio]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		
+	[attr octaves]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  10
+		
+	[attr frequency]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  2
+		
+	[attr frequencyRatio]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		
+	[attr distortionU]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		
+	[attr distortionV]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		
+	[attr distortionRatio]
+		softmin 	FLOAT  0
+		softmax 	FLOAT  1
+		
+	[attr gamma]		
+		softmin 	FLOAT  0
+		softmax 	FLOAT  5
+		
+#--------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------	
+#------------- Deprecated Shaders -----------------------------------------------
+#--------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------	
+
+[node ldkFloatConstant]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkFloatComposite]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkFloatCondition]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkFloatCorrect]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkFloatLogic]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkFloatMask]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkFloatMath]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkColorComposite]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkColorCondition]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkColorConstant]
+	houdini.skip BOOL true 
+
+[node ldkColorCorrect]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkColorLogic]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkColorMask]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkColorMath]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkChannels]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+[node ldkPremultiply]
+	houdini.skip BOOL true 
+	houdini.category STRING "MayaShader/Deprecated" 
+	
+ 
